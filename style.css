@@ -22,7 +22,6 @@ body, html {
     align-items: center;
     overflow: hidden;
     z-index: 1;
-    cursor: pointer;
 }
 
 /* EFECTO DE ESTRELLAS FIJAS EN EL FONDO */
@@ -43,7 +42,6 @@ body, html {
 .xat-center-block {
     position: relative;
     z-index: 10;
-    margin-bottom: 30px;
 }
 
 /* TIPOGRAFÍA DE "REI" CON DESTELLO NEÓN */
@@ -92,64 +90,6 @@ body, html {
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* CONTROLES DE REPRODUCCIÓN REALES */
-.xat-player-controls {
-    position: absolute;
-    bottom: 40px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    opacity: 0.8;
-    z-index: 50;
-}
-
-.xat-btn {
-    width: 36px;
-    height: 36px;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-/* Efecto hover al pasar el mouse por encima de los botones individuales */
-.xat-btn:hover {
-    transform: scale(1.15);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.xat-icon-play {
-    width: 0;
-    height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 10px solid #ffffff;
-    margin-left: 3px;
-}
-
-.xat-icon-pause {
-    display: flex;
-    gap: 3px;
-}
-
-.xat-icon-pause::before, .xat-icon-pause::after {
-    content: "";
-    width: 3px;
-    height: 12px;
-    background-color: #ffffff;
-}
-
-.xat-separator {
-    color: #ffffff;
-    font-size: 1.2rem;
-    user-select: none;
-}
-
 /* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES */
 .xat-shooting {
     position: absolute;
@@ -173,6 +113,7 @@ body, html {
     background: linear-gradient(90deg, #fff, transparent);
 }
 
+/* Tiempos y posiciones de las estrellas fugaces */
 .xat-shooting:nth-child(1) { top: 0px; right: 0px; left: initial; animation-delay: 0s; animation-duration: 3s; }
 .xat-shooting:nth-child(2) { top: 0px; right: 200px; left: initial; animation-delay: 0.5s; animation-duration: 4s; }
 .xat-shooting:nth-child(3) { top: 80px; right: 400px; left: initial; animation-delay: 1s; animation-duration: 2.5s; }
