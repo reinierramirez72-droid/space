@@ -36,8 +36,8 @@
         </div>
 
         <audio id="xat-bg-audio" loop>
-    <source src="https://TU_USUARIO.github.io/TU_REPOSITORIO/cancion.mp3" type="audio/mpeg">
-    Tu navegador no soporta este elemento de audio.
+            <source src="https://reinierramirez72-droid.github.io/space/cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta este elemento de audio.
         </audio>
 
     </div>
@@ -45,24 +45,24 @@
     <script>
         const miAudio = document.getElementById('xat-bg-audio');
 
-        // Función 1: Clic general en la pantalla (intenta arrancar el audio de fondo)
+        // Intenta arrancar el audio cuando se toca el fondo
         function iniciarMusicaoculta() {
             if (miAudio.paused) {
                 miAudio.play().catch(error => {
-                    console.log("Esperando interacción directa con los botones.");
+                    console.log("Navegador bloqueando autoplay. Esperando clic directo.");
                 });
             }
         }
 
-        // Función 2: Clic específico en el botón de PLAY
+        // Clic específico en PLAY
         function reproducirAudio(event) {
-            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            event.stopPropagation(); 
             miAudio.play();
         }
 
-        // Función 3: Clic específico en el botón de PAUSE
+        // Clic específico en PAUSE
         function pausarAudio(event) {
-            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            event.stopPropagation(); 
             miAudio.pause();
         }
     </script>
