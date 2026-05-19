@@ -1,1 +1,166 @@
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: radial-gradient(circle at center, #003399 0%, #001f66 70%, #001133 100%); 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            overflow: hidden; z-index: 1; font-family: sans-serif;">
 
+    <iframe style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;" 
+            src="https://www.youtube.com/embed/328Z3b77k6Y?autoplay=1&mute=1&loop=1&playlist=328Z3b77k6Y" 
+            allow="autoplay">
+    </iframe>
+
+    <style>
+        /* Fondo de estrellas fijas */
+        .xat-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.6;
+        }
+
+        /* Tipografía elegante para el nombre "Rei" */
+        .xat-name-rei {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-size: 8rem;
+            color: #ffffff;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.9),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(0, 51, 153, 0.8);
+            letter-spacing: 2px;
+            line-height: 1;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Divisor inferior */
+        .xat-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -10px;
+            opacity: 0.8;
+        }
+
+        .xat-divider::before, .xat-divider::after {
+            content: "";
+            width: 70px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ffffff);
+        }
+
+        .xat-divider::after {
+            background: linear-gradient(to left, transparent, #ffffff);
+        }
+
+        .xat-diamond {
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            transform: rotate(45deg);
+            margin: 0 10px;
+            box-shadow: 0 0 8px #ffffff;
+        }
+
+        /* Controles de reproducción visuales */
+        .xat-player {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0.8;
+        }
+
+        .xat-btn {
+            width: 36px;
+            height: 36px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .xat-icon-play {
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 10px solid #ffffff;
+            margin-left: 3px;
+        }
+
+        .xat-icon-pause {
+            display: flex;
+            gap: 3px;
+        }
+
+        .xat-icon-pause::before, .xat-icon-pause::after {
+            content: "";
+            width: 3px;
+            height: 12px;
+            background-color: #ffffff;
+        }
+
+        /* Animación de Estrellas Fugaces */
+        .xat-shooting {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255,255,255,1);
+            animation: xatFly 4s linear infinite;
+        }
+
+        .xat-shooting::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+        }
+
+        .xat-shooting:nth-child(1) { top: 0px; right: 0px; left: initial; animation-delay: 0s; animation-duration: 3s; }
+        .xat-shooting:nth-child(2) { top: 0px; right: 200px; left: initial; animation-delay: 0.5s; animation-duration: 4s; }
+        .xat-shooting:nth-child(3) { top: 80px; right: 400px; left: initial; animation-delay: 1s; animation-duration: 2.5s; }
+
+        @keyframes xatFly {
+            0% { transform: rotate(315deg) translateX(0); opacity: 1; }
+            70% { opacity: 1; }
+            100% { transform: rotate(315deg) translateX(-1000px); opacity: 0; }
+        }
+    </style>
+
+    <div class="xat-stars"></div>
+
+    <div class="xat-shooting"></div>
+    <div class="xat-shooting"></div>
+    <div class="xat-shooting"></div>
+
+    <div style="position: relative; z-index: 10;">
+        <h1 class="xat-name-rei">Rei</h1>
+        <div class="xat-divider">
+            <div class="xat-diamond"></div>
+        </div>
+    </div>
+
+    <div class="xat-player">
+        <div class="xat-btn"><div class="xat-icon-play"></div></div>
+        <span style="color: #ffffff; font-size: 1.2rem;">|</span>
+        <div class="xat-btn"><div class="xat-icon-pause"></div></div>
+    </div>
+
+</div>
