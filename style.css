@@ -24,15 +24,6 @@ body, html {
     z-index: 1;
 }
 
-/* IFRAME DE YOUTUBE OCULTO */
-.xat-audio-player {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-}
-
 /* EFECTO DE ESTRELLAS FIJAS EN EL FONDO */
 .xat-stars {
     position: absolute;
@@ -51,6 +42,7 @@ body, html {
 .xat-center-block {
     position: relative;
     z-index: 10;
+    margin-bottom: 30px;
 }
 
 /* TIPOGRAFÍA DE "REI" CON DESTELLO NEÓN */
@@ -98,15 +90,37 @@ body, html {
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* CONTROLES DE REPRODUCCIÓN VISUALES */
-.xat-player-controls {
+/* CONTENEDOR DEL REPRODUCTOR INTERACTIVO */
+.xat-interactive-player-wrapper {
     position: absolute;
     bottom: 40px;
+    width: 120px;
+    height: 45px;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* EL IFRAME OCUPA TODO EL ESPACIO DE LOS BOTONES Y ES CASI INVISIBLE */
+.xat-audio-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.001; /* Casi invisible pero el navegador detecta los clics */
+    z-index: 10;
+    border: none;
+}
+
+/* CONTROLES DE REPRODUCCIÓN VISUALES (DEBAJO DEL IFRAME) */
+.xat-player-controls {
     display: flex;
     align-items: center;
     gap: 15px;
     opacity: 0.8;
-    z-index: 10;
+    pointer-events: none; /* Deja pasar los clics hacia el iframe */
 }
 
 .xat-btn {
@@ -169,7 +183,6 @@ body, html {
     background: linear-gradient(90deg, #fff, transparent);
 }
 
-/* Tiempos y retrasos de las estrellas fugaces */
 .xat-shooting:nth-child(1) { top: 0px; right: 0px; left: initial; animation-delay: 0s; animation-duration: 3s; }
 .xat-shooting:nth-child(2) { top: 0px; right: 200px; left: initial; animation-delay: 0.5s; animation-duration: 4s; }
 .xat-shooting:nth-child(3) { top: 80px; right: 400px; left: initial; animation-delay: 1s; animation-duration: 2.5s; }
