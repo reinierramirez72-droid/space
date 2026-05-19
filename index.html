@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="xat-space-container">
+    <div class="xat-space-container" onclick="iniciarMusicaoculta()">
 
         <div class="xat-stars"></div>
 
@@ -23,20 +23,49 @@
             </div>
         </div>
 
-        <div class="xat-interactive-player-wrapper">
-            <iframe class="xat-audio-player" 
-                    src="https://www.youtube.com/embed/328Z3b77k6Y?autoplay=1&mute=1&loop=1&playlist=328Z3b77k6Y" 
-                    allow="autoplay">
-            </iframe>
+        <div class="xat-player-controls">
+            <div class="xat-btn" id="xat-play-trigger" onclick="reproducirAudio(event)">
+                <div class="xat-icon-play"></div>
+            </div>
             
-            <div class="xat-player-controls">
-                <div class="xat-btn"><div class="xat-icon-play"></div></div>
-                <span class="xat-separator">|</span>
-                <div class="xat-btn"><div class="xat-icon-pause"></div></div>
+            <span class="xat-separator">|</span>
+            
+            <div class="xat-btn" id="xat-pause-trigger" onclick="pausarAudio(event)">
+                <div class="xat-icon-pause"></div>
             </div>
         </div>
 
+        <audio id="xat-bg-audio" loop>
+            <source src="cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta este elemento de audio.
+        </audio>
+
     </div>
+
+    <script>
+        const miAudio = document.getElementById('xat-bg-audio');
+
+        // Función 1: Clic general en la pantalla (intenta arrancar el audio de fondo)
+        function iniciarMusicaoculta() {
+            if (miAudio.paused) {
+                miAudio.play().catch(error => {
+                    console.log("Esperando interacción directa con los botones.");
+                });
+            }
+        }
+
+        // Función 2: Clic específico en el botón de PLAY
+        function reproducirAudio(event) {
+            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            miAudio.play();
+        }
+
+        // Función 3: Clic específico en el botón de PAUSE
+        function pausarAudio(event) {
+            event.stopPropagation(); // Evita que se duplique el evento con el clic del fondo
+            miAudio.pause();
+        }
+    </script>
 
 </body>
 </html>
