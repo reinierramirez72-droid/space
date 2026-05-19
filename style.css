@@ -22,6 +22,7 @@ body, html {
     align-items: center;
     overflow: hidden;
     z-index: 1;
+    cursor: pointer;
 }
 
 /* EFECTO DE ESTRELLAS FIJAS EN EL FONDO */
@@ -59,6 +60,7 @@ body, html {
     line-height: 1;
     margin: 0;
     text-align: center;
+    user-select: none;
 }
 
 /* DIVISOR ELEGANTE */
@@ -90,37 +92,15 @@ body, html {
     box-shadow: 0 0 8px #ffffff;
 }
 
-/* CONTENEDOR DEL REPRODUCTOR INTERACTIVO */
-.xat-interactive-player-wrapper {
+/* CONTROLES DE REPRODUCCIÓN REALES */
+.xat-player-controls {
     position: absolute;
     bottom: 40px;
-    width: 120px;
-    height: 45px;
-    z-index: 50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* EL IFRAME OCUPA TODO EL ESPACIO DE LOS BOTONES Y ES CASI INVISIBLE */
-.xat-audio-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.001; /* Casi invisible pero el navegador detecta los clics */
-    z-index: 10;
-    border: none;
-}
-
-/* CONTROLES DE REPRODUCCIÓN VISUALES (DEBAJO DEL IFRAME) */
-.xat-player-controls {
     display: flex;
     align-items: center;
     gap: 15px;
     opacity: 0.8;
-    pointer-events: none; /* Deja pasar los clics hacia el iframe */
+    z-index: 50;
 }
 
 .xat-btn {
@@ -132,6 +112,15 @@ body, html {
     align-items: center;
     justify-content: center;
     background: transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover al pasar el mouse por encima de los botones individuales */
+.xat-btn:hover {
+    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .xat-icon-play {
@@ -158,6 +147,7 @@ body, html {
 .xat-separator {
     color: #ffffff;
     font-size: 1.2rem;
+    user-select: none;
 }
 
 /* ANIMACIÓN Y EFECTO DE ESTRELLAS FUGACES */
